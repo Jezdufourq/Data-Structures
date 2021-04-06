@@ -19,5 +19,7 @@ public class Main {
 
         Graph.printGraph(graph);
 
+        graph.dfs(0);
+
     }
 }

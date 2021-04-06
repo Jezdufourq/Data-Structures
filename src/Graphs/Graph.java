@@ -38,29 +38,27 @@ public class Graph {
     }
 
     // This is the recursive method
-    private void dfsHelper(Node node, boolean visited[]) {
-        // predef nodeVal
-        int nodeVal;
+    private void dfsHelper(int nodeVal, boolean visited[]) {
         // we have visited this node
-        visited[node.value] = true;
+        visited[nodeVal] = true;
 
         // need to find all of the children nodes
-        List<Node> childrenNodes = adjList.get(node.value);
+        List<Node> childrenNodes = adjList.get(nodeVal);
 
         // Print to screen
-        System.out.println(node.value + "->");
+        System.out.println(nodeVal + "->");
         for(Node currNode: childrenNodes){
             nodeVal = currNode.value;
             if(!visited[nodeVal]) {
-                dfsHelper(currNode, visited);
+                dfsHelper(nodeVal, visited);
             }
         }
     }
 
-    public void dfs(Node rootNode) {
+    public void dfs(int rootNodeVal) {
         boolean visited[] = new boolean[adjList.size()];
 
-        dfsHelper(rootNode, visited);
+        dfsHelper(rootNodeVal, visited);
     }
 
     public static void printGraph(Graph graph){
